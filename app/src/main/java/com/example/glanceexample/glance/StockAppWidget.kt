@@ -35,6 +35,7 @@ import kotlinx.coroutines.launch
 import java.time.Duration
 import java.util.Locale
 import com.example.glanceexample.R
+import androidx.glance.action.clickable
 
 class StockAppWidget : GlanceAppWidget() {
 
@@ -89,6 +90,9 @@ class StockAppWidget : GlanceAppWidget() {
             mediumMode -> Medium(stateCount)
         }
     }
+    private fun refreshPrice() {
+        PriceDataRepo.update()
+    }
 
     @Composable
     private fun StockDisplay(stateCount: Float) {
@@ -132,6 +136,7 @@ class StockAppWidget : GlanceAppWidget() {
     private fun Small(stateCount: Float) {
         Column(
             modifier = GlanceModifier
+                .clickable { refreshPrice() }
                 .fillMaxSize()
                 .background(GlanceTheme.colors.background)
                 .padding(8.dp)
@@ -145,6 +150,7 @@ class StockAppWidget : GlanceAppWidget() {
         Column(
             horizontalAlignment = Alignment.Horizontal.CenterHorizontally,
             modifier = GlanceModifier
+                .clickable { refreshPrice() }
                 .fillMaxSize()
                 .cornerRadius(15.dp)
                 .background(GlanceTheme.colors.background)
