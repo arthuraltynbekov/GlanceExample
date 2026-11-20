@@ -11,12 +11,8 @@ kotlin = "2.2.10"
 composeBom = "2026.02.01"
 
 [libraries]
-androidx-glance-appwidget = {
-    module = "androidx.glance:glance-appwidget",
-    version.ref = "glanceAppwidget" }
-androidx-glance-material3 = {
-    module = "androidx.glance:glance-material3",
-    version.ref = "glanceAppwidget" }
+androidx-glance-appwidget = "androidx.glance:glance-appwidget:1.1.1"
+androidx-glance-material3 = "androidx.glance:glance-material3:1.1.1"
 
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
